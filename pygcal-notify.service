@@ -1,0 +1,10 @@
+[Unit]
+Description=Notifications from Google Calendar
+
+[Service]
+ExecStart=/home/robertc/Git/python-gcalendar-notify/pygcal-notify
+Restart=always
+RestartSec=100
+
+[Install]
+WantedBy=default.target
