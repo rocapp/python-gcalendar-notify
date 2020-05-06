@@ -1,6 +1,7 @@
 # Display Google Calendar events as desktop notifications
 
-Disclaimer: I wrote this for my own personal use. You might need to deviate from the instructions as necessary for your particular environment.
+## Disclaimer:
+### I wrote this for my own personal use. You might need to deviate from the instructions as necessary for your particular environment.
 
 ## Install Python dependencies
 `python3 -m pip install requirements.txt`
