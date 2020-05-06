@@ -1,8 +1,10 @@
-#!/home/robertc/Git/python-gcalendar-notify/pygcal/bin/python
+#!/bin/bash
+exec "${pygcal_python_path}" "$0.py" "$@" # use custom python
 from __future__ import print_function
 import datetime
 import pickle
 import os.path
+import os
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -28,7 +30,7 @@ def main():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                '/home/robertc/.gcalendar-creds.json', SCOPES)
+                os.environ.get('pygcal_credentials', SCOPES)
             creds = flow.run_local_server(port=5000)
         # Save the credentials for the next run
         with open('token.pickle', 'wb') as token:

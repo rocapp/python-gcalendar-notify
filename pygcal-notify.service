@@ -2,7 +2,7 @@
 Description=Notifications from Google Calendar
 
 [Service]
-ExecStart=/home/robertc/Git/python-gcalendar-notify/pygcal-notify
+ExecStart=/bin/bash -a -c "source ${pygcal_root_path}/pygcal_environ.sh && exec ${pygcal_exe_path}"
 Restart=always
 RestartSec=5400
 
