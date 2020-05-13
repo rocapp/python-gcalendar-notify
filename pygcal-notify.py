@@ -1,5 +1,5 @@
-#!/bin/bash
-exec "${pygcal_python_path}" "$0.py" "$@" # use custom python
+#!/usr/bin/env python
+# exec("${pygcal_python_path}" "$0.py" "$@") # use custom python
 from __future__ import print_function
 import datetime
 import pickle
@@ -30,7 +30,7 @@ def main():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                os.environ.get('pygcal_credentials', SCOPES)
+                os.environ.get('pygcal_credentials'), SCOPES)
             creds = flow.run_local_server(port=5000)
         # Save the credentials for the next run
         with open('token.pickle', 'wb') as token:
